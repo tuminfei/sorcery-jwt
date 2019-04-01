@@ -30,7 +30,7 @@ module Sorcery
 
         module ClassMethods
           def issue_token(payload)
-            exp_payload = payload.merge(exp: @sorcery_config.session_expiry)
+            exp_payload = payload.has_key?(:exp) ? payload : payload.merge(exp: @sorcery_config.session_expiry) 
             JWT.encode(exp_payload, @sorcery_config.jwt_secret, @sorcery_config.jwt_algorithm)
           end
 
