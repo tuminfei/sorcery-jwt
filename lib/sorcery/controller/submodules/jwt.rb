@@ -25,7 +25,7 @@ module Sorcery
 
             @current_user = user
             auto_login(@current_user)
-            user_class.issue_token(id: @current_user.id, phone_number: @current_user.phone_number)
+            user_class.issue_token(id: @current_user.id, phone_number: @current_user.phone_number, exp: @current_user.session_expiry)
           end
 
           private
