@@ -17,7 +17,7 @@ module Sorcery
 
           base.sorcery_config.instance_eval do
             @defaults[:@jwt_algorithm] = "HS256"
-            @defaults[:@session_expiry] = Time.now.to_i + (3600 * 24 * 14)
+            @defaults[:@session_expiry] = Time.now.to_i + (120)
 
             reset!
           end
